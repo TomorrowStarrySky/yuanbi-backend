@@ -254,26 +254,12 @@ public class ChartController {
         ThrowUtils.throwIf(size > ONE_MB,ErrorCode.PARAMS_ERROR,"文件超过1MB");
         // 校验文件后缀
         String suffix = FileUtil.getSuffix(originalFilename);
-        final List<String> validFileSuffix = Arrays.asList("png","jpg","svg","webp","jpeg");
+        final List<String> validFileSuffix = Arrays.asList("xlsx", "xls");
         ThrowUtils.throwIf(!validFileSuffix.contains(suffix),ErrorCode.PARAMS_ERROR,"文件后缀不支持");
 
         // 文件的合规性，可使用第三方库实现
-        //
 
         User loginUser = userService.getLoginUser(request);
-
-
-        //无需 prompt
-//        final String prompt = "你是一个数据分析师和前端开发专家，接下来我会按照以下固定格式给你提供内容：\n" +
-//                "分析需求：\n" +
-//                "{数据分析的需求或者目标}\n" +
-//                "原始数据：\n" +
-//                "{csv格式的原始数据，用,作为分隔符}\n" +
-//                "请根据这两部分的内容，按照以下指定格式生成内容(此外不要输出任何多余的开头、结尾、注释)\n" +
-//                "【【【【【\n" +
-//                "{前端 Echarts v5 的 option 配置对象js代码，合理地将数据进行可视化，不要生成任何多余的内容，比如注释}\n" +
-//                "【【【【【\n" +
-//                "{明确的数据分析结论、越详细越好，不要生成多余的注释}";
 
         long modelId = CommonConstant.BI_MODEL_ID;
 
